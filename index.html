@@ -399,6 +399,54 @@ footer{margin-top:4rem;background:var(--noche);color:#A3A3AC}
 }
 .dir-vacio p{color:#4C4C55;font-size:.95rem;max-width:30rem;margin:0 auto 1.2rem}
 .dir-resumen{margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#6E6E77;letter-spacing:.06em}
+
+/* ---------- bolsa de trabajo exclusiva ---------- */
+.candado{
+  margin-top:2.2rem;background:var(--noche);border:1.5px solid rgba(255,205,40,.4);
+  border-radius:var(--radio);padding:2.6rem 2rem;text-align:center;color:var(--papel);
+  position:relative;overflow:hidden;
+}
+.candado::before{content:'';position:absolute;inset:0;background:radial-gradient(480px 200px at 50% 0%,rgba(255,205,40,.16),transparent 70%)}
+.candado .lock-ic{font-size:2.6rem;display:block;margin-bottom:.6rem;position:relative}
+.candado h3{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.35rem;position:relative}
+.candado p{color:#C9C9CE;font-size:.94rem;max-width:34rem;margin:.6rem auto 1.4rem;position:relative}
+.clave-fila{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;position:relative}
+.clave-fila input{
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,205,40,.4);border-radius:999px;
+  color:var(--papel);padding:.75rem 1.3rem;font-family:'IBM Plex Mono',monospace;font-size:.95rem;
+  text-align:center;letter-spacing:.15em;width:min(280px,80vw);
+}
+.clave-fila input:focus{outline:none;border-color:var(--glow)}
+.clave-err{color:#FF6B61;font-family:'IBM Plex Mono',monospace;font-size:.75rem;margin-top:.8rem;min-height:1.2em;position:relative}
+.candado .alt{margin-top:1.2rem;font-size:.82rem;color:#9A9AA3;position:relative}
+.candado .alt a{color:var(--glow)}
+.bolsa{display:none;margin-top:2.2rem}
+.bolsa.abierta{display:block}
+.empleos{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.1rem;margin-top:1.6rem}
+.empleo{
+  background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:1.3rem 1.4rem;
+  position:relative;overflow:hidden;transition:.2s;display:flex;flex-direction:column;gap:.4rem;
+}
+.empleo::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#16161B,var(--ambar))}
+.empleo:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,22,27,.1);border-color:var(--ambar)}
+.empleo .emp-meta{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ambar-osc)}
+.empleo h4{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;line-height:1.25;color:var(--tinta)}
+.empleo .emp-org{font-size:.86rem;color:#4C4C55;font-weight:600}
+.empleo p{font-size:.85rem;color:#4C4C55;flex:1}
+.empleo a{align-self:flex-start;text-decoration:none;background:var(--ambar);color:#211A00;font-weight:700;font-size:.82rem;border-radius:999px;padding:.45rem 1rem;margin-top:.4rem;transition:.2s}
+.empleo a:hover{background:var(--glow)}
+.buscadores{margin-top:2.4rem;background:var(--papel-2);border:1.5px dashed var(--linea);border-radius:var(--radio);padding:1.6rem 1.8rem}
+.buscadores h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.1rem;text-transform:uppercase;margin-bottom:.4rem}
+.buscadores p{font-size:.88rem;color:#4C4C55;margin-bottom:1rem}
+.buscadores .chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.buscadores .chips a{
+  text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.06em;
+  color:var(--tinta);background:#fff;border:1px solid var(--linea);border-radius:999px;padding:.4rem .9rem;transition:.2s;
+}
+.buscadores .chips a:hover{border-color:var(--ambar);background:var(--glow)}
+.bolsa-pub{margin-top:1.8rem;text-align:center}
+.bolsa-pub p{font-size:.88rem;color:#4C4C55;margin-bottom:.8rem}
+.salir-bolsa{background:none;border:1px solid var(--linea);border-radius:999px;color:#6E6E77;font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:.35rem .9rem;cursor:pointer;margin-top:1.6rem}
 /* reveal */
 .rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rev.on{opacity:1;transform:none}
@@ -427,6 +475,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <a href="#alianza">Alianza</a>
       <a href="#cursos">Cursos</a>
       <a href="#nuestra-comunidad">Comunidad</a>
+      <a href="#bolsa-trabajo">🔒 Bolsa de Trabajo</a>
       <a class="nav-tecgo" href="https://energeticos2023.github.io/Yacusol-app/" target="_blank" rel="noopener">App TecGo</a>
       <a class="nav-cta" href="#membresia">⚡ Hazte miembro</a>
     </div>
@@ -446,7 +495,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <a class="btn btn-ghost" href="#especialidades">Explorar especialidades</a>
       </div>
       <div class="hero-social">
-        <a href="https://wa.me/51983926721" target="_blank" rel="noopener">📱 WhatsApp</a>
+        <a href="https://wa.me/51934608162" target="_blank" rel="noopener">📱 WhatsApp</a>
         <a href="https://www.facebook.com/profile.php?id=61579692151327" target="_blank" rel="noopener">👍 Facebook</a>
         <a href="https://www.youtube.com/results?search_query=instalaciones+el%C3%A9ctricas+paneles+solares+termas" target="_blank" rel="noopener">▶️ Videos IIEE</a>
       </div>
@@ -785,6 +834,53 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     </div>
   </section>
 
+  <!-- BOLSA DE TRABAJO EXCLUSIVA -->
+  <section id="bolsa-trabajo" class="rev">
+    <div class="fase"><span class="term" aria-hidden="true"></span><code>Zona restringida — Bolsa de trabajo</code></div>
+    <h2>Bolsa de trabajo exclusiva para socios</h2>
+    <p class="intro">Oportunidades laborales para ingenieros y técnicos electricistas de la comunidad. Esta zona es solo para socios: se ingresa con la clave que recibes al ser aprobado como miembro.</p>
+
+    <div class="candado" id="candado">
+      <span class="lock-ic">🔒</span>
+      <h3>Zona exclusiva de socios</h3>
+      <p>Ingresa tu clave de socio para ver las convocatorias activas y los buscadores de empleo de la comunidad.</p>
+      <div class="clave-fila">
+        <input type="password" id="inpClave" placeholder="CLAVE DE SOCIO" autocomplete="off" aria-label="Clave de socio">
+        <button class="btn btn-amb" id="btnClave" type="button">🔓 Ingresar</button>
+      </div>
+      <p class="clave-err" id="claveErr"></p>
+      <p class="alt">¿Aún no eres socio? <a href="#membresia">Inscríbete gratis aquí</a> y recibe tu clave al ser aprobado.<br>¿Ya eres socio y no tienes la clave? <a href="https://wa.me/51934608162?text=Hola%2C%20soy%20socio%20de%20la%20CNEP%20y%20quiero%20mi%20CLAVE%20DE%20SOCIO%20para%20entrar%20a%20la%20Bolsa%20de%20Trabajo%20Exclusiva.%20Mi%20nombre%20es%3A%20" target="_blank" rel="noopener">Pídela por WhatsApp</a>.</p>
+    </div>
+
+    <div class="bolsa" id="bolsa">
+      <div class="fase"><span style="font-size:1.1rem">🔓</span><code>Acceso concedido — Bienvenido, socio</code></div>
+      <h3 style="font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.3rem;margin-bottom:.4rem">Convocatorias activas</h3>
+      <p style="font-size:.92rem;color:#4C4C55">Publicadas por la coordinación y las empresas aliadas. Postula directo por WhatsApp.</p>
+      <div class="empleos" id="listaEmpleos"></div>
+
+      <div class="buscadores">
+        <h3>🔎 Buscadores en vivo — siempre actualizados</h3>
+        <p>Estos accesos buscan en tiempo real en las principales bolsas de empleo del Perú. Cada clic muestra las ofertas del día, sin que nadie tenga que actualizarlas a mano.</p>
+        <div class="chips">
+          <a href="https://pe.computrabajo.com/trabajo-de-electricista" target="_blank" rel="noopener">Computrabajo · Electricista</a>
+          <a href="https://pe.computrabajo.com/trabajo-de-ingeniero-electricista" target="_blank" rel="noopener">Computrabajo · Ing. Electricista</a>
+          <a href="https://pe.computrabajo.com/trabajo-de-tecnico-electricista" target="_blank" rel="noopener">Computrabajo · Técnico</a>
+          <a href="https://pe.indeed.com/jobs?q=electricista&l=Per%C3%BA" target="_blank" rel="noopener">Indeed · Electricista</a>
+          <a href="https://pe.indeed.com/jobs?q=paneles+solares&l=Per%C3%BA" target="_blank" rel="noopener">Indeed · Paneles solares</a>
+          <a href="https://www.linkedin.com/jobs/search/?keywords=electricista&location=Per%C3%BA" target="_blank" rel="noopener">LinkedIn · Electricista</a>
+          <a href="https://www.linkedin.com/jobs/search/?keywords=ingeniero%20el%C3%A9ctrico&location=Per%C3%BA" target="_blank" rel="noopener">LinkedIn · Ing. Eléctrico</a>
+          <a href="https://www.bumeran.com.pe/empleos-busqueda-electricista.html" target="_blank" rel="noopener">Bumeran · Electricista</a>
+        </div>
+      </div>
+
+      <div class="bolsa-pub">
+        <p>¿Tu empresa necesita técnicos o sabes de una convocatoria? Publícala para la comunidad:</p>
+        <a class="btn btn-amb" href="https://wa.me/51934608162?text=%E2%9A%A1%20OPORTUNIDAD%20LABORAL%20PARA%20LA%20BOLSA%20CNEP%0A%0A%F0%9F%8F%A2%20Empresa/Persona%20que%20publica%3A%0A%F0%9F%92%BC%20Puesto%3A%0A%F0%9F%93%8D%20Regi%C3%B3n%3A%0A%F0%9F%93%8B%20Requisitos%3A%0A%F0%9F%92%B0%20Remuneraci%C3%B3n%20%28opcional%29%3A%0A%F0%9F%93%B1%20Contacto%20para%20postular%3A%0A" target="_blank" rel="noopener">📢 Publicar una oportunidad</a>
+        <br><button class="salir-bolsa" id="salirBolsa" type="button">🔒 Cerrar zona de socios</button>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="rev">
     <div class="fase"><span class="term" aria-hidden="true"></span><code>⏚ Puesta a tierra · Contacto</code></div>
@@ -792,9 +888,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <p class="intro">Estamos a un mensaje de distancia. Elige tu canal:</p>
     <div class="contacto">
       <div>
-        <a class="canal" href="https://wa.me/51983926721" target="_blank" rel="noopener">
+        <a class="canal" href="https://wa.me/51934608162" target="_blank" rel="noopener">
           <span class="cic">📱</span>
-          <span><b>WhatsApp / Celular</b><span>983 926 721</span></span>
+          <span><b>WhatsApp / Celular</b><span>934 608 162</span></span>
         </a>
         <a class="canal" href="mailto:tecnicos.electricistas.del.peru@gmail.com">
           <span class="cic">✉️</span>
@@ -841,6 +937,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <a href="#cursos">Cursos</a>
       <a href="#membresia">Membresía</a>
       <a href="#nuestra-comunidad">Comunidad</a>
+      <a href="#bolsa-trabajo">Bolsa de Trabajo</a>
       <a href="#contacto">Contacto</a>
     </div>
   </div>
@@ -903,7 +1000,7 @@ document.getElementById('formMiembro').addEventListener('submit',function(ev){
   msg+='\n⚡ Especialidad: '+g('fEsp')+'\n🛠 Experiencia: '+g('fExp');
   if(g('fCert'))msg+='\n📜 Certificaciones: '+g('fCert');
   msg+='\n\n✅ Declara información verdadera y acepta la evaluación.';
-  window.open('https://wa.me/51983926721?text='+encodeURIComponent(msg),'_blank','noopener');
+  window.open('https://wa.me/51934608162?text='+encodeURIComponent(msg),'_blank','noopener');
 });
 
 
@@ -970,6 +1067,53 @@ document.querySelectorAll('.dir-nivel').forEach(b=>b.addEventListener('click',()
   filNivel=b.dataset.nivel;filRegion="todas";pintaDirectorio();
 }));
 pintaDirectorio();
+
+
+/* ============================================================
+   🔑 CLAVE DE SOCIOS — EDITAR AQUÍ
+   Cambia la clave cuando quieras (recomendado: cada cierto tiempo).
+   Compártela SOLO con socios aprobados, por WhatsApp.
+   ============================================================ */
+const CLAVE_SOCIOS="CNEP2026";
+
+/* ============================================================
+   💼 CONVOCATORIAS DE LA BOLSA DE TRABAJO — EDITAR AQUÍ
+   Agrega cada oportunidad como una línea. "contacto" puede ser
+   un número de WhatsApp (solo dígitos con 51 adelante) o un enlace.
+   Borra las de EJEMPLO cuando tengas reales.
+   ============================================================ */
+const EMPLEOS=[
+  {puesto:"Técnico electricista para instalaciones domiciliarias (EJEMPLO)", empresa:"ENERGÉTICOS", region:"Arequipa", modalidad:"Por proyecto", detalle:"Se requiere técnico con experiencia en cableado y tableros para obra en Cono Norte. Herramientas propias.", contacto:"51934608162"},
+  {puesto:"Ingeniero electricista supervisor de obra (EJEMPLO)", empresa:"Empresa aliada", region:"Lima", modalidad:"Tiempo completo", detalle:"Supervisión de instalaciones eléctricas en edificio multifamiliar. Colegiatura vigente.", contacto:"51934608162"},
+];
+
+function pintaEmpleos(){
+  const cont=document.getElementById('listaEmpleos');
+  if(EMPLEOS.length===0){cont.innerHTML='<p style="color:#6E6E77;font-family:IBM Plex Mono,monospace;font-size:.8rem">// No hay convocatorias activas por ahora. Revisa los buscadores en vivo más abajo.</p>';return}
+  cont.innerHTML=EMPLEOS.map(e=>{
+    const esLink=String(e.contacto).startsWith('http');
+    const href=esLink?e.contacto:('https://wa.me/'+e.contacto+'?text='+encodeURIComponent('Hola, soy socio CNEP y quiero postular a: '+e.puesto));
+    return '<article class="empleo"><span class="emp-meta">📍 '+e.region+' · '+e.modalidad+'</span><h4>'+e.puesto+'</h4><span class="emp-org">🏢 '+e.empresa+'</span><p>'+e.detalle+'</p><a href="'+href+'" target="_blank" rel="noopener">Postular ahora</a></article>';
+  }).join('');
+}
+function abrirBolsa(){
+  document.getElementById('candado').style.display='none';
+  document.getElementById('bolsa').classList.add('abierta');
+  pintaEmpleos();
+}
+document.getElementById('btnClave').addEventListener('click',()=>{
+  const v=document.getElementById('inpClave').value.trim();
+  if(v===CLAVE_SOCIOS){sessionStorage.setItem('cnepSocio','1');document.getElementById('claveErr').textContent='';abrirBolsa();}
+  else{document.getElementById('claveErr').textContent='⚠ Clave incorrecta. Esta zona es solo para socios: inscríbete o pide tu clave por WhatsApp.';}
+});
+document.getElementById('inpClave').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('btnClave').click()});
+document.getElementById('salirBolsa').addEventListener('click',()=>{
+  sessionStorage.removeItem('cnepSocio');
+  document.getElementById('bolsa').classList.remove('abierta');
+  document.getElementById('candado').style.display='block';
+  document.getElementById('inpClave').value='';
+});
+if(sessionStorage.getItem('cnepSocio')==='1')abrirBolsa();
 
 // Álbum: lightbox
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
