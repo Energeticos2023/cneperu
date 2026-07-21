@@ -768,9 +768,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
     <div class="dir-niveles" role="tablist" aria-label="Nivel de registro">
       <button class="dir-nivel act" data-nivel="todos" role="tab" aria-selected="true"><span class="cnt" id="cntTodos">0</span><b>⚡ Todos</b><span>Comunidad completa</span></button>
+      <button class="dir-nivel" data-nivel="Ingeniero" role="tab" aria-selected="false"><span class="cnt" id="cntIng">0</span><b>⚡ Ingenieros</b><span>Registro ING</span></button>
       <button class="dir-nivel" data-nivel="Titulado" role="tab" aria-selected="false"><span class="cnt" id="cntTit">0</span><b>🎓 Titulados</b><span>Registro N-01</span></button>
       <button class="dir-nivel" data-nivel="Bachiller" role="tab" aria-selected="false"><span class="cnt" id="cntBach">0</span><b>📜 Bachilleres / Egresados</b><span>Registro N-02</span></button>
       <button class="dir-nivel" data-nivel="Empírico" role="tab" aria-selected="false"><span class="cnt" id="cntEmp">0</span><b>🛠 Empíricos</b><span>Registro N-03</span></button>
+      <button class="dir-nivel" data-nivel="Empresa" role="tab" aria-selected="false"><span class="cnt" id="cntEmpr">0</span><b>🏢 Empresas</b><span>Registro EMP</span></button>
     </div>
 
     <div class="dir-regiones" id="dirRegiones" aria-label="Filtrar por región"></div>
@@ -909,19 +911,24 @@ document.getElementById('formMiembro').addEventListener('submit',function(ev){
    📋 LISTA DE SOCIOS DE LA COMUNIDAD — EDITAR AQUÍ
    ------------------------------------------------------------
    Para agregar un nuevo socio, copia una línea y cambia los datos.
-   nivel: "Titulado" | "Bachiller" | "Empírico"
+   nivel: "Ingeniero" | "Titulado" | "Bachiller" | "Empírico" | "Empresa"
    region: escribe el nombre EXACTO de la región (ej. "Arequipa")
-   Borra los socios de EJEMPLO cuando tengas los reales.
+   Agrega cada nuevo socio aprobado como una línea más.
    ============================================================ */
 const SOCIOS=[
-  {nombre:"Juan Pérez Quispe (EJEMPLO)", nivel:"Titulado", region:"Arequipa", ciudad:"Camaná", especialidad:"Sistemas Fotovoltaicos"},
-  {nombre:"María Huamán Torres (EJEMPLO)", nivel:"Bachiller", region:"Lima", ciudad:"San Juan de Lurigancho", especialidad:"IIEE Domiciliarias"},
-  {nombre:"Carlos Mamani Flores (EJEMPLO)", nivel:"Empírico", region:"Puno", ciudad:"Juliaca", especialidad:"Puesta a Tierra"},
+  {nombre:"Amilcar Peña", nivel:"Ingeniero", region:"Puno", ciudad:"Juliaca", especialidad:"Redes eléctricas de baja y media tensión · Diseño y supervisión"},
+  {nombre:"Leandro Bazán Zarazú", nivel:"Ingeniero", region:"Lima", ciudad:"Lima", especialidad:"Mantenimiento eléctrico"},
+  {nombre:"Victor Manuel Jimenez Cerpa", nivel:"Ingeniero", region:"Lima", ciudad:"Lima", especialidad:"Instalaciones eléctricas industriales"},
+  {nombre:"Cesar Estrada", nivel:"Ingeniero", region:"Piura", ciudad:"Piura", especialidad:"Diseño, supervisión y expedientes técnicos · Docente"},
+  {nombre:"Jaime Ramón Zapata Otoya", nivel:"Ingeniero", region:"Piura", ciudad:"Piura", especialidad:"Mantenimiento eléctrico"},
+  {nombre:"Jhorman Antonio Palomino Castillo", nivel:"Titulado", region:"Ica", ciudad:"Ica", especialidad:"Media y alta tensión"},
+  {nombre:"Pablo Cesar Choque Moran", nivel:"Titulado", region:"Ica", ciudad:"Ica", especialidad:"Instalaciones eléctricas domiciliarias"},
+  {nombre:"Giancarlo Martín Soraluz Manrique", nivel:"Empresa", region:"Lima", ciudad:"Lima", especialidad:"Capacitaciones para el sector eléctrico"},
 ];
 
 const REGIONES=["Amazonas","Áncash","Apurímac","Arequipa","Ayacucho","Cajamarca","Callao","Cusco","Huancavelica","Huánuco","Ica","Junín","La Libertad","Lambayeque","Lima","Loreto","Madre de Dios","Moquegua","Pasco","Piura","Puno","San Martín","Tacna","Tumbes","Ucayali"];
 let filNivel="todos", filRegion="todas";
-const nivelTag={Titulado:"🎓 Titulado · N-01",Bachiller:"📜 Bachiller · N-02","Empírico":"🛠 Empírico · N-03"};
+const nivelTag={Ingeniero:"⚡ Ingeniero(a) · ING",Titulado:"🎓 Titulado · N-01",Bachiller:"📜 Bachiller · N-02","Empírico":"🛠 Empírico · N-03",Empresa:"🏢 Empresa aliada · EMP"};
 
 function pintaRegiones(){
   const cont=document.getElementById('dirRegiones');
@@ -936,9 +943,11 @@ function pintaRegiones(){
 }
 function pintaDirectorio(){
   document.getElementById('cntTodos').textContent=SOCIOS.length;
+  document.getElementById('cntIng').textContent=SOCIOS.filter(s=>s.nivel==="Ingeniero").length;
   document.getElementById('cntTit').textContent=SOCIOS.filter(s=>s.nivel==="Titulado").length;
   document.getElementById('cntBach').textContent=SOCIOS.filter(s=>s.nivel==="Bachiller").length;
   document.getElementById('cntEmp').textContent=SOCIOS.filter(s=>s.nivel==="Empírico").length;
+  document.getElementById('cntEmpr').textContent=SOCIOS.filter(s=>s.nivel==="Empresa").length;
   pintaRegiones();
   const lista=SOCIOS.filter(s=>(filNivel==="todos"||s.nivel===filNivel)&&(filRegion==="todas"||s.region===filRegion));
   const cont=document.getElementById('dirLista'), vacio=document.getElementById('dirVacio');
