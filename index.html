@@ -357,6 +357,46 @@ footer{margin-top:4rem;background:var(--noche);color:#A3A3AC}
   padding:.45rem 1rem;font-size:.82rem;font-weight:600;transition:.2s;
 }
 .hero-social a:hover{background:rgba(255,205,40,.14);transform:translateY(-2px)}
+
+/* ---------- directorio de la comunidad ---------- */
+.dir-niveles{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}
+.dir-nivel{
+  flex:1;min-width:170px;cursor:pointer;border:1.5px solid var(--linea);border-radius:var(--radio);
+  background:#fff;padding:1rem 1.1rem;text-align:left;font-family:'IBM Plex Sans',sans-serif;
+  transition:.2s;
+}
+.dir-nivel b{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:1rem;color:var(--tinta)}
+.dir-nivel span{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#6E6E77}
+.dir-nivel .cnt{float:right;font-family:'Archivo',sans-serif;font-weight:800;font-size:1.3rem;color:var(--ambar-osc)}
+.dir-nivel:hover{border-color:var(--ambar);transform:translateY(-3px)}
+.dir-nivel.act{border:2px solid var(--ambar);background:linear-gradient(135deg,rgba(255,205,40,.16),#fff);box-shadow:0 0 0 4px rgba(255,205,40,.18)}
+.dir-regiones{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
+.dir-reg{
+  cursor:pointer;border:1px solid var(--linea);border-radius:999px;background:#fff;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta);padding:.35rem .8rem;transition:.2s;
+}
+.dir-reg:hover{border-color:var(--ambar)}
+.dir-reg.act{background:var(--tinta);color:var(--glow);border-color:var(--tinta)}
+.dir-reg .n{color:var(--ambar-osc);font-weight:500;margin-left:.3rem}
+.dir-reg.act .n{color:var(--glow)}
+.dir-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;margin-top:1.8rem}
+.socio-card{
+  background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:1.1rem 1.2rem;
+  transition:.2s;position:relative;overflow:hidden;
+}
+.socio-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--ambar)}
+.socio-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,22,27,.1);border-color:var(--ambar)}
+.socio-card .sc-nivel{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ambar-osc);border:1px solid var(--ambar);border-radius:999px;padding:.15rem .55rem;display:inline-block;margin-bottom:.55rem}
+.socio-card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;line-height:1.25}
+.socio-card p{font-size:.82rem;color:#4C4C55;margin-top:.25rem}
+.socio-card .sc-reg{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#6E6E77;margin-top:.5rem;display:block}
+.dir-vacio{
+  margin-top:1.8rem;border:1.5px dashed var(--linea);border-radius:var(--radio);background:var(--papel-2);
+  padding:2.4rem 1.6rem;text-align:center;
+}
+.dir-vacio p{color:#4C4C55;font-size:.95rem;max-width:30rem;margin:0 auto 1.2rem}
+.dir-resumen{margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#6E6E77;letter-spacing:.06em}
 /* reveal */
 .rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rev.on{opacity:1;transform:none}
@@ -384,6 +424,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <a href="#obras">Obras</a>
       <a href="#alianza">Alianza</a>
       <a href="#cursos">Cursos</a>
+      <a href="#nuestra-comunidad">Comunidad</a>
       <a class="nav-tecgo" href="https://energeticos2023.github.io/Yacusol-app/" target="_blank" rel="noopener">App TecGo</a>
       <a class="nav-cta" href="#membresia">⚡ Hazte miembro</a>
     </div>
@@ -716,6 +757,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     </div>
   </section>
 
+  <!-- NUESTRA COMUNIDAD (DIRECTORIO) -->
+  <section id="nuestra-comunidad" class="rev">
+    <div class="fase"><span class="term" aria-hidden="true"></span><code>Red activa — Nuestra comunidad</code></div>
+    <h2>Conoce a nuestra comunidad</h2>
+    <p class="intro">Estos son los socios honorarios que ya forman parte de la red, organizados por nivel de registro y por región. Elige un nivel, luego toca la región que quieras explorar. La lista crece con cada nueva inscripción.</p>
+
+    <div class="dir-niveles" role="tablist" aria-label="Nivel de registro">
+      <button class="dir-nivel act" data-nivel="todos" role="tab" aria-selected="true"><span class="cnt" id="cntTodos">0</span><b>⚡ Todos</b><span>Comunidad completa</span></button>
+      <button class="dir-nivel" data-nivel="Titulado" role="tab" aria-selected="false"><span class="cnt" id="cntTit">0</span><b>🎓 Titulados</b><span>Registro N-01</span></button>
+      <button class="dir-nivel" data-nivel="Bachiller" role="tab" aria-selected="false"><span class="cnt" id="cntBach">0</span><b>📜 Bachilleres / Egresados</b><span>Registro N-02</span></button>
+      <button class="dir-nivel" data-nivel="Empírico" role="tab" aria-selected="false"><span class="cnt" id="cntEmp">0</span><b>🛠 Empíricos</b><span>Registro N-03</span></button>
+    </div>
+
+    <div class="dir-regiones" id="dirRegiones" aria-label="Filtrar por región"></div>
+
+    <p class="dir-resumen" id="dirResumen"></p>
+    <div class="dir-lista" id="dirLista"></div>
+    <div class="dir-vacio" id="dirVacio" hidden>
+      <p id="dirVacioMsg">Aún no hay socios registrados aquí. ¡Sé el primero de tu región!</p>
+      <a class="btn btn-amb" href="#membresia">⚡ Inscribirme ahora</a>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="rev">
     <div class="fase"><span class="term" aria-hidden="true"></span><code>⏚ Puesta a tierra · Contacto</code></div>
@@ -771,6 +835,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <a href="#obras">Obras</a>
       <a href="#cursos">Cursos</a>
       <a href="#membresia">Membresía</a>
+      <a href="#nuestra-comunidad">Comunidad</a>
       <a href="#contacto">Contacto</a>
     </div>
   </div>
@@ -835,6 +900,63 @@ document.getElementById('formMiembro').addEventListener('submit',function(ev){
   msg+='\n\n✅ Declara información verdadera y acepta la evaluación.';
   window.open('https://wa.me/51934608162?text='+encodeURIComponent(msg),'_blank','noopener');
 });
+
+
+/* ============================================================
+   📋 LISTA DE SOCIOS DE LA COMUNIDAD — EDITAR AQUÍ
+   ------------------------------------------------------------
+   Para agregar un nuevo socio, copia una línea y cambia los datos.
+   nivel: "Titulado" | "Bachiller" | "Empírico"
+   region: escribe el nombre EXACTO de la región (ej. "Arequipa")
+   Borra los socios de EJEMPLO cuando tengas los reales.
+   ============================================================ */
+const SOCIOS=[
+  {nombre:"Juan Pérez Quispe (EJEMPLO)", nivel:"Titulado", region:"Arequipa", ciudad:"Camaná", especialidad:"Sistemas Fotovoltaicos"},
+  {nombre:"María Huamán Torres (EJEMPLO)", nivel:"Bachiller", region:"Lima", ciudad:"San Juan de Lurigancho", especialidad:"IIEE Domiciliarias"},
+  {nombre:"Carlos Mamani Flores (EJEMPLO)", nivel:"Empírico", region:"Puno", ciudad:"Juliaca", especialidad:"Puesta a Tierra"},
+];
+
+const REGIONES=["Amazonas","Áncash","Apurímac","Arequipa","Ayacucho","Cajamarca","Callao","Cusco","Huancavelica","Huánuco","Ica","Junín","La Libertad","Lambayeque","Lima","Loreto","Madre de Dios","Moquegua","Pasco","Piura","Puno","San Martín","Tacna","Tumbes","Ucayali"];
+let filNivel="todos", filRegion="todas";
+const nivelTag={Titulado:"🎓 Titulado · N-01",Bachiller:"📜 Bachiller · N-02","Empírico":"🛠 Empírico · N-03"};
+
+function pintaRegiones(){
+  const cont=document.getElementById('dirRegiones');
+  const base=SOCIOS.filter(s=>filNivel==="todos"||s.nivel===filNivel);
+  let htmlR='<button class="dir-reg'+(filRegion==="todas"?" act":"")+'" data-reg="todas">Todas<span class="n">'+base.length+'</span></button>';
+  REGIONES.forEach(r=>{
+    const n=base.filter(s=>s.region===r).length;
+    htmlR+='<button class="dir-reg'+(filRegion===r?" act":"")+'" data-reg="'+r+'">'+r+'<span class="n">'+n+'</span></button>';
+  });
+  cont.innerHTML=htmlR;
+  cont.querySelectorAll('.dir-reg').forEach(b=>b.addEventListener('click',()=>{filRegion=b.dataset.reg;pintaDirectorio()}));
+}
+function pintaDirectorio(){
+  document.getElementById('cntTodos').textContent=SOCIOS.length;
+  document.getElementById('cntTit').textContent=SOCIOS.filter(s=>s.nivel==="Titulado").length;
+  document.getElementById('cntBach').textContent=SOCIOS.filter(s=>s.nivel==="Bachiller").length;
+  document.getElementById('cntEmp').textContent=SOCIOS.filter(s=>s.nivel==="Empírico").length;
+  pintaRegiones();
+  const lista=SOCIOS.filter(s=>(filNivel==="todos"||s.nivel===filNivel)&&(filRegion==="todas"||s.region===filRegion));
+  const cont=document.getElementById('dirLista'), vacio=document.getElementById('dirVacio');
+  const res=document.getElementById('dirResumen');
+  res.textContent='// Mostrando '+lista.length+' socio(s)'+(filNivel!=="todos"?' · Nivel: '+filNivel:'')+(filRegion!=="todas"?' · Región: '+filRegion:'');
+  if(lista.length===0){
+    cont.innerHTML='';vacio.hidden=false;
+    document.getElementById('dirVacioMsg').textContent=filRegion!=="todas"
+      ?('Aún no hay socios '+(filNivel!=="todos"?('de nivel '+filNivel+' '):'')+'registrados en '+filRegion+'. ¡Sé el primero de tu región!')
+      :'Aún no hay socios registrados en este nivel. ¡Sé el primero!';
+    return;
+  }
+  vacio.hidden=true;
+  cont.innerHTML=lista.map(s=>'<article class="socio-card"><span class="sc-nivel">'+nivelTag[s.nivel]+'</span><h3>'+s.nombre+'</h3><p>'+s.especialidad+'</p><span class="sc-reg">📍 '+s.region+(s.ciudad?' — '+s.ciudad:'')+'</span></article>').join('');
+}
+document.querySelectorAll('.dir-nivel').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.dir-nivel').forEach(o=>{o.classList.remove('act');o.setAttribute('aria-selected','false')});
+  b.classList.add('act');b.setAttribute('aria-selected','true');
+  filNivel=b.dataset.nivel;filRegion="todas";pintaDirectorio();
+}));
+pintaDirectorio();
 
 // Álbum: lightbox
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
